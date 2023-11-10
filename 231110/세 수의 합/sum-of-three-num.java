@@ -21,32 +21,40 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static StringTokenizer st;
-    static HashMap<Long, Integer> hmap = new HashMap<>();
-    static StringBuilder sb = new StringBuilder();
-    static final int Max_N = 1000;
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
-        long[] nums = new long[Max_N];
-        
-        st = new StringTokenizer(br.readLine());
-        for(int i=0; i<N; i++){
-        	nums[i] = Integer.parseInt(st.nextToken());
-        }
-        
-        long ans =0;
-        for (int i = 0; i < N-1; i++) {
-        	for (int j = i+1; j < N; j++) {
-				
-			long diff = K-nums[i]-nums[j];
-			if(hmap.containsKey(diff)) ans +=hmap.get(diff);
-			if(!hmap.containsKey(nums[i]+nums[j])) hmap.put(nums[i]+nums[j], 1);
-			else hmap.put(nums[i]+nums[j], hmap.get(nums[i]+nums[j])+1);
-        	}
+	static StringTokenizer st;
+	static HashMap<Integer, Integer> hmap = new HashMap<>();
+	static StringBuilder sb = new StringBuilder();
+	static final int Max_N = 1000;
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+		int[] nums = new int[Max_N];
+
+		st = new StringTokenizer(br.readLine());
+		for (int i = 0; i < N; i++) {
+			nums[i] = Integer.parseInt(st.nextToken());
+			if (!hmap.containsKey(nums[i]))
+				hmap.put(nums[i], 1);
+			else
+				hmap.put(nums[i], hmap.get(nums[i]) + 1);
 		}
-        System.out.println(ans);
-    }
+
+		int ans = 0;
+		for (int i = 0; i < N; i++) {
+			if (!hmap.containsKey(nums[i]))
+				hmap.put(nums[i], -1);
+			else
+				hmap.put(nums[i], hmap.get(nums[i])- 1);
+
+			for (int j = 0; j < i; j++) {
+				int diff = K - nums[i] - nums[j];
+				if (hmap.containsKey(diff))
+					ans += hmap.get(diff);
+			}
+		}
+		System.out.println(ans);
+	}
 }
