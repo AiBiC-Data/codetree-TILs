@@ -45,7 +45,6 @@ public class Main {
 					hmap.put((int) (two - Math.pow(2, i)), 1);
 				}
 			}
-			System.out.println(hmap.toString());
 			int three = Integer.parseInt(B, 3);
 			int tmp=0;
 			for (int i = 0, leng = B.length(), idx = B.length()-1; i < leng; i++, idx--) {
