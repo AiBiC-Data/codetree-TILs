@@ -38,6 +38,7 @@ public class Main {
 
 			}
 		}
+		if(tmp.charAt(0)=='0') tmp = "1"+tmp;
 		sb.append(tmp);
 		System.out.println(sb.toString());
 	}
