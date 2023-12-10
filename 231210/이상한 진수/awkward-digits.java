@@ -17,7 +17,7 @@ public class Main {
 		} else if (B.charAt(0) == '0') {
 			String tmp1 = "1" + B.substring(1, B.length());
 			int comp1 = Integer.parseInt(tmp1, 3);
-			tmp1 = Integer.toString(comp1, 2);
+			tmp1 = Integer.toString(comp1, 3);
 			if (tmp1.length() == B.length()) {
 				int cnt = 0;
 				for (int i = 0, leng = tmp1.length(); i < leng; i++) {
@@ -45,6 +45,7 @@ public class Main {
 					hmap.put((int) (two - Math.pow(2, i)), 1);
 				}
 			}
+			System.out.println(hmap.toString());
 			int three = Integer.parseInt(B, 3);
 			int tmp=0;
 			for (int i = 0, leng = B.length(), idx = B.length()-1; i < leng; i++, idx--) {
