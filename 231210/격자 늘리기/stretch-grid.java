@@ -15,13 +15,16 @@ public class Main {
 		
 		for (int i = 0; i < N; i++) {
 			String str = br.readLine();
+			String temp="";
 			for (int j = 0; j < M; j++) {
 				char tmp = str.charAt(j);
 				for (int k = 0; k < K; k++) {
-					sb.append(tmp);
+					temp += tmp;
 				}
 			}
-			sb.append("\n");
+			for (int k = 0; k < K; k++) {
+				sb.append(temp+"\n");
+			}
 		}
 		System.out.println(sb.toString());
 	}
