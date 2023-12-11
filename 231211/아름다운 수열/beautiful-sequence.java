@@ -43,15 +43,16 @@ public class Main {
 		// 빼기
 		boolean flag = true;
 		int cnt=0;
-//		while(flag) {
-//			int[] tmpB = new int[M];
-//			for (int i = 0; i < M; i++) {
-//				tmpB[i] = b[i]-cnt;
-//				if(tmpB[i]==minA) flag=false;
-//			}
-//			cnt++;
-//			comb(tmpB, 0, 0, new int[M]);
-//		}
+		while(flag) {
+			int[] tmpB = new int[M];
+			for (int i = 0; i < M; i++) {
+				tmpB[i] = b[i]-cnt;
+				if(tmpB[i]==minA) flag=false;
+			}
+			cnt++;
+			res =new int[M];
+			perm(tmpB, 0, 0);
+		}
 		
 		// 더하기
 		flag = true;
