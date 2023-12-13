@@ -71,7 +71,7 @@ public class Main {
 		for (int i = 0; i < R - 1; i++) {
 			int a = tmp[i];
 			for (int j = i+1; j < R; j++) {
-				int b = tmp[i + 1];
+				int b = tmp[j];
 				sum -= (map[a][b] + map[b][a]);
 			}
 		}
